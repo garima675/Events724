@@ -7,21 +7,35 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+
+
+  // Sort events in ascending order by date (oldest to most recent)
+  const byDateAsc = data?.focus.sort((evtA, evtB) =>
+    new Date(evtA.date) > new Date(evtB.date) ? 1 : -1
   );
+  // Function to move to the next slide
   const nextCard = () => {
-    setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
-      5000
+    // Update index: Loop back to 0 if the end is reached
+    setIndex((prevIndex) => 
+      prevIndex < byDateAsc.length - 1 ? prevIndex + 1 : 0
     );
   };
+  
+  
   useEffect(() => {
-    nextCard();
-  });
+    // Automatically move to the next slide every 5 seconds
+    const timeout = setTimeout(nextCard, 5000);
+    
+     // Clear timeout when component unmounts or index changes
+     return () => clearTimeout(timeout);
+    }, [index, byDateAsc?.length]);
+  
+
+
+  
   return (
     <div className="SlideCardList">
-      {byDateDesc?.map((event, idx) => (
+      {byDateAsc?.map((event, idx) => (
         <>
           <div
             key={event.title}
@@ -40,7 +54,7 @@ const Slider = () => {
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((_, radioIdx) => (
+              {byDateAsc.map((_, radioIdx) => (
                 <input
                   key={`${event.id}`}
                   type="radio"

@@ -21,6 +21,9 @@ const Menu = () => (
     <Button title="contact" onClick={() => (window.document.location.hash = "#contact")}>
       Contact
     </Button>
+    
+
+
   </nav>
 );
 
