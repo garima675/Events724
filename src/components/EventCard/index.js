@@ -9,7 +9,7 @@ const EventCard = ({
   date = new Date(),
   title,
   label,
-  small = false,
+  small,
   ...props
 }) => (
     <div
@@ -40,6 +40,8 @@ EventCard.propTypes = {
 EventCard.defaultProps = {
   imageAlt: "image",
   small: false,
+  title:"title",
+  imageSrc:"imageSource",
 }
 
 export default EventCard;
