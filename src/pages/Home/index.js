@@ -8,14 +8,16 @@ import EventList from "../../containers/Events";
 import Slider from "../../containers/Slider";
 import Logo from "../../components/Logo";
 import Icon from "../../components/Icon";
+
 import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
+import React from "react";
 
 const Page = () => {
   const { last } = useData()
 
-  console.info(last)
+  
   
   return <>
     <header>
@@ -124,7 +126,7 @@ const Page = () => {
           title={last?.title}
           date={new Date(last?.date)}
           small
-          label="boom"
+          label={last?.type}
         />
       </div>
       <div className="col contact">

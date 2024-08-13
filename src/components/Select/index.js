@@ -16,7 +16,7 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue);
     setValue(newValue);
     setCollapsed(newValue);
   };
@@ -68,6 +68,7 @@ const Select = ({
 
 const Arrow = () => (
   <svg
+  cursor="pointer"
     width="21"
     height="11"
     viewBox="0 0 21 11"

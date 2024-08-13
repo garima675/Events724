@@ -52,17 +52,14 @@ const Slider = () => {
               </div>
             </div>
           </div>
-          
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
               {byDateAsc.map((event, radioIdx) => (
                 <input
                 key={event.title}
-                // key={`${event.id}`} correction event n'a pas d'id
-                type="radio"
+               type="radio"
                 name="radio-button"
                 checked={index === radioIdx}
-                // checked={idx === radioIdx} correction idx => index 
                 readOnly
                 />
               ))}
