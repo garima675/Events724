@@ -31,7 +31,6 @@ const Slider = () => {
     }, [index, byDateAsc?.length]);
   
 
-
   
   return (
     <div className="SlideCardList">
@@ -52,6 +51,7 @@ const Slider = () => {
               </div>
             </div>
           </div>
+          {/* Corrected pagination error*/}
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
               {byDateAsc.map((event, radioIdx) => (

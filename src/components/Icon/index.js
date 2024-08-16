@@ -1,4 +1,4 @@
-/* istanbul ignore file */
+ // eslint-disable-next-line
 import PropTypes from "prop-types";
 
 const Icon = ({ name }) => {
