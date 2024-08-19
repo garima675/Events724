@@ -26,6 +26,7 @@ export const api = {
 export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+  // Used useMemo for getting the last event
   const last = useMemo(() => {
     if (!data) return null;
     return data.events?.reduce((mostRecent, event) => {
