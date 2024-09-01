@@ -19,7 +19,7 @@ import ModalEvent from "../../containers/ModalEvent";
 const Page = () => {
   const { last } = useData()
 
-  console.log(last)
+
 
   
   

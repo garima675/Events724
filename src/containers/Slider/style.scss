@@ -1,6 +1,7 @@
 @import "src/colors.scss";
 
 .SlideCardList {
+  overflow-x:hidden;
   position: relative;
   width: 100%;
   max-width: 1440px;
